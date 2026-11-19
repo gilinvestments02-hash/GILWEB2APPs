@@ -1,0 +1,3 @@
+[functions.android-builder]
+verify_jwt = true
+entrypoint = "./functions/android-builder/index.ts"
