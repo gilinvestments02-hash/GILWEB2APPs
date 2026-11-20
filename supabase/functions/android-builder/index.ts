@@ -20,8 +20,9 @@ async function authenticate(req: Request): Promise<SupabaseUser | null> {
   const token = authHeader.replace('Bearer ', '').trim();
   if (!token) return null;
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const supabase = createClient(supabaseUrl, token);
-  const { data, error } = await supabase.auth.getUser();
+  const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+  const supabase = createClient(supabaseUrl, anonKey);
+  const { data, error } = await supabase.auth.getUser(token);
   if (error || !data.user) return null;
   return {
     id: data.user.id,
