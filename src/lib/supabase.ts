@@ -38,7 +38,8 @@ export type AppRecord = {
   settings_status_bar: boolean;
   status: string;
   current_step: number;
-  build_service_url: string;
+  github_config_id: string | null;
+  last_build_type: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -53,9 +54,36 @@ export type BuildRecord = {
   package_name: string;
   build_type: string;
   status: string;
-  manifest: Record<string, string> | null;
-  download_url: string | null;
+  github_run_id: number | null;
+  github_run_url: string | null;
+  github_status: string | null;
+  github_conclusion: string | null;
+  project_source: string | null;
+  artifact_id: string | null;
   error_message: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type BuildArtifact = {
+  id: string;
+  build_id: string;
+  user_id: string;
+  name: string;
+  archive_download_url: string;
+  size_in_bytes: number;
+  storage_path: string | null;
+  expires_at: string | null;
+  created_at: string;
+};
+
+export type GithubConfig = {
+  id: string;
+  repo_owner: string;
+  repo_name: string;
+  default_branch: string;
+  workflow_filename: string;
+  has_keystore: boolean;
   created_at: string;
   updated_at: string;
 };

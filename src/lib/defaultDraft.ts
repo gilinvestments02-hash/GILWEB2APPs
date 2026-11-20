@@ -26,5 +26,6 @@ export const defaultDraft: AppDraft = {
   settings_status_bar: true,
   status: 'draft',
   current_step: 1,
-  build_service_url: '',
+  github_config_id: null,
+  last_build_type: null,
 };

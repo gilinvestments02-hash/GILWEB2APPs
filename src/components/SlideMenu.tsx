@@ -9,7 +9,7 @@ import {
   X,
   ListChecks,
   LogOut,
-  Cloud,
+  Github,
 } from 'lucide-react';
 
 export type MenuPanel =
@@ -20,7 +20,7 @@ export type MenuPanel =
   | 'firebase'
   | 'admob'
   | 'settings'
-  | 'buildservice'
+  | 'github'
   | null;
 
 type Props = {
@@ -39,7 +39,7 @@ const items: { label: string; icon: typeof Star; panel: MenuPanel }[] = [
   { label: 'Firebase', icon: Flame, panel: 'firebase' },
   { label: 'AdMob', icon: DollarSign, panel: 'admob' },
   { label: 'Settings', icon: Settings, panel: 'settings' },
-  { label: 'Build Service', icon: Cloud, panel: 'buildservice' },
+  { label: 'GitHub Build', icon: Github, panel: 'github' },
 ];
 
 export function SlideMenu({ open, onClose, onSelect, onMyApps, onLogout }: Props) {
