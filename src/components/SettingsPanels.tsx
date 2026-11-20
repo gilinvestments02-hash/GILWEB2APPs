@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Upload, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import type { AppDraft } from '@/lib/supabase';
 
 type Props = {
@@ -162,28 +162,8 @@ export function SettingsPanel({ draft, onChange }: Props) {
   );
 }
 
-export function BuildServicePanel({ draft, onChange }: Props) {
-  return (
-    <PanelShell title="Build Service" subtitle="Connect an external Android build server">
-      <div className="text-xs text-gray-400 px-1">
-        Connect a remote build service to compile your Android project into an APK or AAB
-        without needing Android Studio. If left blank, you can still download the project ZIP
-        and build locally.
-      </div>
-      <TextRow
-        label="Build Service URL"
-        value={draft.build_service_url}
-        onChange={(v) => onChange({ build_service_url: v })}
-        placeholder="https://your-build-server.com/api/build"
-      />
-      <div className="text-xs text-gray-400 px-1 space-y-1">
-        <p className="font-medium text-gray-500">Supported build services:</p>
-        <p>• Custom Gradle build server (POST endpoint)</p>
-        <p>• Bitrise / Codemagic / GitHub Actions (via webhook URL)</p>
-        <p>• Any service that accepts a JSON project config</p>
-      </div>
-    </PanelShell>
-  );
+export function BuildServicePanel() {
+  return null;
 }
 
 /* ---------- shared bits ---------- */
@@ -271,5 +251,4 @@ function SelectRow({ label, value, onChange, options }: {
   );
 }
 
-// Upload and X imported for potential future use in icon upload UI
-export { Upload, X };
+

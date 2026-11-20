@@ -15,8 +15,8 @@ import {
   FirebasePanel,
   AdMobPanel,
   SettingsPanel,
-  BuildServicePanel,
 } from '@/components/SettingsPanels';
+import { GitHubPanel } from '@/components/GitHubPanel';
 import { FinishStep } from '@/components/FinishStep';
 import { MyAppsDashboard } from '@/components/MyAppsDashboard';
 import { Loader2 } from 'lucide-react';
@@ -132,8 +132,8 @@ function Builder() {
         return <AdMobPanel draft={draft} onChange={patch} />;
       case 'settings':
         return <SettingsPanel draft={draft} onChange={patch} />;
-      case 'buildservice':
-        return <BuildServicePanel draft={draft} onChange={patch} />;
+      case 'github':
+        return <GitHubPanel draft={draft} onChange={patch} />;
       default:
         return null;
     }
@@ -222,7 +222,7 @@ function Builder() {
           </>
         ) : (
           /* Step 3: Finish */
-          <FinishStep draft={draft} onBack={goToPrev} onSave={() => saveApp('finished')} />
+          <FinishStep draft={draft} appId={editingId} onBack={goToPrev} onSave={() => saveApp('finished')} />
         )}
       </main>
     </div>
